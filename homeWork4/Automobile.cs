@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace homeWork4
-{
+{ 
     class Automobile
     {
+        //константная переменная дабы не использовать магические числа
+        const int thisYear = 2019;
+
         private string _carBrand;
         private string _carModel;
         private int _power;
@@ -15,18 +18,38 @@ namespace homeWork4
         private string _color;
         private double _price;
         private string _bodyType;
+        //статические поля 
+        //1. Общая соимость автомобилей данного класса 2. Количесвто автомобилей данного класса
+        public static double _totalCarPrice;
+        public static int _carCount;
 
         public Automobile()
         {
             _carBrand = "";
             _carModel = "";
+            _price = 0;
+            _totalCarPrice += _price;
+            _carCount++;
         }
-        public Automobile(string carBrand, string carModel, int power, int assemblyYear)
+        public Automobile(string carBrand, string carModel, int power, int assemblyYear, string color, double price, string bodyType)
         {
             _carBrand = carBrand;
             _carModel = carModel;
             _power = power;
-            _assemblyYear = assemblyYear;
+            if (_assemblyYear > thisYear)
+            {
+                _assemblyYear = thisYear;
+            }
+            else
+            {
+                _assemblyYear = assemblyYear;
+            }
+            _color = color;
+            _price = price;
+            _bodyType = bodyType;
+            //При создании обекта класса статические переменные будут увеличены
+            _totalCarPrice += _price;
+            _carCount++;
         }
         public string CarBrand
         {
