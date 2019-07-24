@@ -5,16 +5,18 @@ namespace homeWork4
     {
         static void Main(string[] args)
         {
-            Automobile automobile = new Automobile("BWB", "525", 240, 2050, "WHITE", 3300000, "Sedan");
-            Automobile automobile1 = new Automobile("AUDI", "A6", 210, 2010, "Black", 4600000, "Sedan");
-            Console.WriteLine(automobile.CarAssemblyYear);
-            Console.WriteLine(automobile.CarColor);
-            automobile.ChangeColor(ref automobile);
-            Console.WriteLine(automobile.CarColor);
-            Console.WriteLine(Automobile._carCount);
-            Console.WriteLine(Automobile._totalCarPrice);
-            automobile.Initialization();
-            automobile.Print();
+            int arrSize = 2;
+            Automobile[] array = new Automobile[arrSize];
+            for(int i = 0; i < array.Length; i++)
+            {
+                array[i] = new Automobile();
+                array[i].Initialization();
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i].Print();
+            }
+            Console.WriteLine("Общее количество автомобилей = " + Automobile._carCount + "\n" + "Общая стоимость всех автомобилей = " + Automobile._totalCarPrice + " тенге");
             Console.ReadKey();
         }
     }

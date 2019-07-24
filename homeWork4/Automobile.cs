@@ -22,7 +22,6 @@ namespace homeWork4
         {
             CarBrand = "";
             CarModel = "";
-            CarPrice = 0;
             //Увеличение стати-их полей класса при создании обьекта
             _totalCarPrice += _price;
             _carCount++;
@@ -32,7 +31,7 @@ namespace homeWork4
             CarBrand = carBrand;
             CarModel = carModel;
             CarPrice = price;
-            _totalCarPrice += _price;
+            _totalCarPrice += CarPrice;
             _carCount++;
         }
         public Automobile(string carBrand, string carModel, int power, int assemblyYear, string color, int price, string bodyType)
@@ -171,6 +170,7 @@ namespace homeWork4
             Console.WriteLine("Введите тип кузова: ");
             temp = Console.ReadLine();
             CarBodyType = temp;
+            _totalCarPrice += _price;
         }
        
         //Перегруженные операторы > и < для сравнения двух автомобилей по цене
