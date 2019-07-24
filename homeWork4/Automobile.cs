@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace homeWork4
 {
-    public class Automobile
+    public partial class Automobile
     {
         //константная переменная дабы не использовать магические числа
         const int thisYear = 2019;
@@ -25,30 +20,37 @@ namespace homeWork4
 
         public Automobile()
         {
-            _carBrand = "";
-            _carModel = "";
-            _price = 0;
+            CarBrand = "";
+            CarModel = "";
+            CarPrice = 0;
             //Увеличение стати-их полей класса при создании обьекта
+            _totalCarPrice += _price;
+            _carCount++;
+        }
+        public Automobile(string carBrand, string carModel, int price)
+        {
+            CarBrand = carBrand;
+            CarModel = carModel;
+            CarPrice = price;
             _totalCarPrice += _price;
             _carCount++;
         }
         public Automobile(string carBrand, string carModel, int power, int assemblyYear, string color, int price, string bodyType)
         {
-            _carBrand = carBrand;
-            _carModel = carModel;
-            _power = power;
+            CarBrand = carBrand;
+            CarModel = carModel;
+            CarPower = power;
             if (assemblyYear > thisYear)
             {
-                _assemblyYear = thisYear;
+                CarAssemblyYear = thisYear;
             }
             else
             {
-                _assemblyYear = assemblyYear;
+                CarAssemblyYear = assemblyYear;
             }
-            _color = color;
-            _price = price;
-            _bodyType = bodyType;
-            //При создании обекта класса статические переменные будут увеличены
+            CarColor = color;
+            CarPrice = price;
+            CarBodyType = bodyType;
             _totalCarPrice += _price;
             _carCount++;
         }
@@ -170,12 +172,7 @@ namespace homeWork4
             temp = Console.ReadLine();
             CarBodyType = temp;
         }
-        //Метод вывода в консоль
-        public void Print()
-        {
-            Console.WriteLine(CarBrand + "  " + CarModel + "  " + CarPower + "  " + CarAssemblyYear
-                + "  " + CarColor + "  " + CarPrice + "  " + CarBodyType);
-        }
+       
         //Перегруженные операторы > и < для сравнения двух автомобилей по цене
         public static bool operator !=(Automobile right, Automobile left)
         {

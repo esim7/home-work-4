@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace homeWork4
 {
     class Program
@@ -21,6 +16,16 @@ namespace homeWork4
             automobile.Initialization();
             automobile.Print();
             Console.ReadKey();
+        }
+    }
+    //метод обьявленный вне класса
+    public partial class Automobile
+    {
+        //Метод вывода в консоль
+        public void Print()
+        {
+            Console.WriteLine(CarBrand + "  " + CarModel + "  " + CarPower + "  " + CarAssemblyYear
+                + "  " + CarColor + "  " + CarPrice + "  " + CarBodyType);
         }
     }
 }
