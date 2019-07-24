@@ -5,7 +5,7 @@ namespace homeWork4
     {
         static void Main(string[] args)
         {
-            int arrSize = 2;
+            int arrSize = 5;
             Automobile[] array = new Automobile[arrSize];
             for(int i = 0; i < array.Length; i++)
             {
